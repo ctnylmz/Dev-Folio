@@ -1,0 +1,14 @@
+﻿namespace Dev_Folio.Models
+{
+    public class About
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Title { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string Img { get; set; }
+        public string Description { get; set; }
+        public List<Skill> Skill { get; set; }
+    }
+}
