@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Portfolio_DevFolio.Data;
-using Portfolio_DevFolio.Models;
+using Dev_Folio.Data;
+using Dev_Folio.Models;
 
-namespace Portfolio_DevFolio.Areas.Admin.Controllers
+namespace Dev_Folio.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize]

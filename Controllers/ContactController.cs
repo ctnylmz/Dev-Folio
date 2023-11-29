@@ -2,7 +2,7 @@
 using Dev_Folio.Data;
 using Dev_Folio.Models;
 
-namespace Portfolio_DevFolio.Controllers
+namespace Dev_Folio.Controllers
 {
     public class ContactController : Controller
     {

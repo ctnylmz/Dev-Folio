@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Portfolio_DevFolio.Data;
+using Dev_Folio.Data;
 
-namespace Portfolio_DevFolio.Areas.Admin.Controllers
+namespace Dev_Folio.Areas.Admin.Controllers
 {
     public class LogoutController : Controller
     {

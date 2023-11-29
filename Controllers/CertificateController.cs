@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Dev_Folio.Data;
 
-namespace Portfolio_DevFolio.Controllers
+namespace Dev_Folio.Controllers
 {
     public class CertificateController : Controller
     {

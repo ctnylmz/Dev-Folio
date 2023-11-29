@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Portfolio_DevFolio.Areas.Admin.Models;
-using Portfolio_DevFolio.Data;
+using Dev_Folio.Areas.Admin.Models;
+using Dev_Folio.Data;
 
-namespace Portfolio_DevFolio.Areas.Admin.Controllers
+namespace Dev_Folio.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class LoginController : Controller

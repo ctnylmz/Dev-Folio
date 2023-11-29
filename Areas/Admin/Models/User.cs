@@ -1,4 +1,4 @@
-﻿namespace Portfolio_DevFolio.Areas.Admin.Models
+﻿namespace Dev_Folio.Areas.Admin.Models
 {
     public class User
     {

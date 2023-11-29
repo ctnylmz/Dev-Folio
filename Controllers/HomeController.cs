@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Dev_Folio.Data;
 
-namespace PDev_Folio.Controllers
+namespace Dev_Folio.Controllers
 {
     public class HomeController : Controller
     {
