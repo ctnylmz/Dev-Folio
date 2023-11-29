@@ -1,0 +1,32 @@
+﻿
+
+<div class="col-md-7 mx-auto">
+    @if (TempData["Message"] != null)
+    {
+        <p class="text-success text-center">@TempData["Message"]</p>
+    }
+    <form method="Post">
+
+        <input type="hidden" class="form-control"  value="@Model.Id" name="Id">
+
+
+        <div class="form-group">
+            <label for="Name">NAME</label>
+            <input type="text" class="form-control" id="Name" value="@Model.Name" name="Name">
+        </div>
+
+        <div class="form-group">
+            <label for="Title">TITLE</label>
+            <textarea class="form-control" id="Title" name="Title">@Model.Title</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="Img">Image</label>
+            <input type="text" class="form-control" id="Img" value="@Model.Img" name="Img">
+        </div>
+   
+        <button type="submit" class="btn btn-primary w-100 mt-2">Update</button>
+    </form>
+
+
+</div>

@@ -4,9 +4,9 @@ using Dev_Folio.Models;
 
 namespace Dev_Folio.Data
 {
-    public class DevfolioContext : IdentityDbContext
+    public class DevFolioContext : IdentityDbContext
     {
-        public DevfolioContext(DbContextOptions<DevfolioContext> options) : base(options)
+        public DevFolioContext(DbContextOptions<DevFolioContext> options) : base(options)
         {
 
         }

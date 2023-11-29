@@ -1,0 +1,45 @@
+﻿
+
+<div class="col-md-7 mx-auto">
+    <form method="Post">
+
+        <input type="text" class="form-control" name="Id" value="@Model.Id">
+
+
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name">
+        </div>
+
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <textarea type="text" class="form-control" id="Description" name="Description" rows="3">@Model.Description</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="Title">Title</label>
+            <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title">
+        </div>
+
+        <div class="form-group">
+            <label for="Title">Image</label>
+            <input type="text" class="form-control" id="Img" name="Img" value="@Model.Img">
+        </div>
+
+
+        <div class="form-group">
+            <label for="Time">Date Time</label>
+            <input type="text" class="form-control" id="Time" name="Time" value="@Model.Time">
+        </div>
+
+
+
+        <div class="d-flex justify-content-between">
+            <a class="btn btn-danger w-50 mt-2 mr-2" href="/Admin/Work">Turn Back</a>
+            <button type="submit" class="btn btn-primary w-50 mt-2 ml-2">Update</button>
+        </div>
+
+    </form>
+
+
+</div>

@@ -1,0 +1,59 @@
+﻿
+<div class="col-md-7 mx-auto">
+    @if (TempData["Message"] != null)
+    {
+        <p class="text-success text-center">@TempData["Message"]</p>
+    }
+    <form method="Post" >
+
+        <input type="hidden" class="form-control" value="@Model.Id" name="Id">
+
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input type="text" class="form-control" id="Name" value="@Model.Name" name="Name">
+        </div>
+
+        <div class="form-group">
+            <label for="Title">Title</label>
+            <input type="text" class="form-control" id="Title" value="@Model.Title" name="Title">
+        </div>
+
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="text" class="form-control" id="Email" value="@Model.Email" name="Email">
+        </div>
+
+        <div class="form-group">
+            <label for="Phone">Phone</label>
+            <input type="text" class="form-control" id="Phone" value="@Model.Phone" name="Phone">
+        </div>
+      
+        <div class="form-group">
+            <label for="Img">Img</label>
+            <input type="text" class="form-control" id="Img" value="@Model.Img" name="Img">
+        </div>
+
+
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <textarea type="text" class="form-control" id="Description" name="Description" rows="5">@Model.Description</textarea>
+         
+        </div>
+       
+        <label for="Skill">Skill</label>
+        <a href="/Admin/Skill" class="float-right"> Edit</a>
+        <select name="selectedSkill" class="form-control">
+           
+
+            @foreach (var skill in Model.Skill)
+            {
+                <option  value="@skill.Name">@skill.Name (@skill.Level)</option>
+            }
+            
+        </select> 
+
+        <button type="submit" class="btn btn-primary w-100 my-5">Update</button>
+    </form>
+
+
+</div>

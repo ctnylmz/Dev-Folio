@@ -1,0 +1,55 @@
+﻿ <!--/ Intro Skew Star /-->
+<div class="intro intro-single route bg-image" style="background-image: url(img/overlay-bg.jpg); height: 90px;">
+    <div class="overlay-mf"></div>
+</div>
+
+
+<!--/ Section Blog Star /-->
+<section id="blog" class="blog-mf sect-pt4 route">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="title-box text-center">
+                    <h3 class="title-a">
+                        SERTİFİKA
+                    </h3>
+                
+                    <div class="line-mf"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mt-5">
+                    <div class="card card-blog">
+                        <div class="card-img">
+                            <a href="/Certificate/Details/@item.Id"><img src="@item.Img" alt="" class="img-fluid"></a>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-category-box">
+                                <div class="card-category">
+                                    <h6 class="category">@item.Name</h6>
+                                </div>
+                            </div>
+                            <h3 class="card-title"><a href="/Certificate/Details/@item.Id">@item.Title</a></h3>
+                            <p class="card-description">
+                                <td>@(item.Description.Length > 70 ? item.Description.Substring(0, 70) + "..." : item.Description)</td>
+
+                            </p>
+                        </div>
+                        <div class="card-footer">
+
+                            <div class="post-date">
+                                <span class="ion-ios-clock-outline"></span> @item.Time
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+       
+        </div>
+    </div>
+</section>
+<!--/ Section Blog End /-->

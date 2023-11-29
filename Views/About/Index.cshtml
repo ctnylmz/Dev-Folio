@@ -1,0 +1,62 @@
+﻿@model About
+
+<div class="intro intro-single route bg-image" style="background-image: url(img/overlay-bg.jpg); height: 90px;">
+    <div class="overlay-mf"></div>
+</div>
+
+<section id="about" class="about-mf sect-pt4 route">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box-shadow-full">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-5">
+                                    <div class="about-img">
+                                        <img src="@Model.Img" class="img-fluid rounded b-shadow-a" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-7">
+                                    <div class="about-info">
+                                        <p><span class="title-s">İsim: </span> <span>@Model.Name</span></p>
+                                        <p><span class="title-s">Ünvan: </span> <span>@Model.Title</span></p>
+                                        <p><span class="title-s">Email: </span> <span>@Model.Email</span></p>
+                                        <p><span class="title-s">Telefon: </span> <span>@Model.Phone</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-mf">
+                                <p class="title-s">Yeteneklerim</p>
+                               
+                                @foreach(var item in Model.Skill)
+                                {
+                                    <span>@item.Name</span> <span class="pull-right">@item.Level%</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: @item.Level%;" aria-valuenow="@item.Level" aria-valuemin="0"
+                                             aria-valuemax="100"></div>
+                                    </div>
+                                }
+                             
+                               
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="about-me pt-4 pt-md-0">
+                                <div class="title-box-2">
+                                    <h5 class="title-left">
+                                        HAKKIMDA
+                                    </h5>
+                                </div>
+                                <p class="lead">
+                                    @Model.Description
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
