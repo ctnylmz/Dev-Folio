@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Portfolio_DevFolio.Data;
+﻿using Dev_Folio.Data;
+using Microsoft.AspNetCore.Mvc;
+using Dev_Folio.Data;
 
-namespace Portfolio_DevFolio.Areas.Admin.Components
+namespace Dev_Folio.Areas.Admin.Components
 {
     public class MessageListViewComponent : ViewComponent
     {
-        DevfolioContext _context;
+        DevFolioContext _context;
 
-        public MessageListViewComponent(DevfolioContext context)
+        public MessageListViewComponent(DevFolioContext context)
         {
             _context = context;
         }

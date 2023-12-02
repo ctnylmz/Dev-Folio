@@ -11,10 +11,10 @@ namespace Dev_Folio.Areas.Admin.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly DevfolioContext _context;
+        private readonly DevFolioContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public LoginController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, DevfolioContext context, IHttpContextAccessor httpContextAccessor)
+        public LoginController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, DevFolioContext context, IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _signInManager = signInManager;

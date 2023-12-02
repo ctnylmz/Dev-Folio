@@ -9,9 +9,9 @@ namespace Dev_Folio.Areas.Admin.Controllers
     [Authorize]
     public class ContactPageController : Controller
     {
-        DevfolioContext _context;
+        DevFolioContext _context;
 
-        public ContactPageController(DevfolioContext context)
+        public ContactPageController(DevFolioContext context)
         {
             _context = context;
         }

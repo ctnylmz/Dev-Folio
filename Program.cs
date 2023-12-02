@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<DevfolioContext>(options =>
+builder.Services.AddDbContext<DevFolioContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MSSQL"));
 });
@@ -18,7 +18,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     options.Password.RequireDigit = true;
 
 })
-.AddEntityFrameworkStores<DevfolioContext>()
+.AddEntityFrameworkStores<DevFolioContext>()
 .AddDefaultTokenProviders();
 
 using (var scope = builder.Services.BuildServiceProvider().CreateScope())

@@ -9,9 +9,9 @@ namespace Dev_Folio.Areas.Admin.Controllers
     [Authorize]
     public class CertificatePageController : Controller
     {
-        private DevfolioContext _context;
+        private DevFolioContext _context;
 
-        public CertificatePageController(DevfolioContext context)
+        public CertificatePageController(DevFolioContext context)
         {
             _context = context;
         }

@@ -8,9 +8,9 @@ namespace Dev_Folio.Areas.Admin.Controllers
     [Authorize]
     public class MessagePageController : Controller
     {
-        DevfolioContext _context;
+        DevFolioContext _context;
 
-        public MessagePageController(DevfolioContext context)
+        public MessagePageController(DevFolioContext context)
         {
             _context = context;
         }

@@ -10,9 +10,9 @@ namespace Dev_Folio.Areas.Admin.Controllers
     [Authorize]
     public class HomePageController : Controller
     {
-        private DevfolioContext _context;
+        private DevFolioContext _context;
 
-        public HomePageController(DevfolioContext context)
+        public HomePageController(DevFolioContext context)
         {
             _context = context;
         }

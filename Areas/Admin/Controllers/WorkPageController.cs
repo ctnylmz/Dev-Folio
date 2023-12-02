@@ -9,9 +9,9 @@ namespace Dev_Folio.Areas.Admin.Controllers
     [Authorize]
     public class WorkPageController : Controller
     {
-        DevfolioContext _context;
+        DevFolioContext _context;
 
-        public WorkPageController(DevfolioContext context)
+        public WorkPageController(DevFolioContext context)
         {
             _context = context;
         }
