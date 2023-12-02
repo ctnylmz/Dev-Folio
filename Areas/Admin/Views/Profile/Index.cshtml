@@ -7,9 +7,6 @@
     }
     <form method="Post">
 
-        <input type="hidden" class="form-control" value="@Model.Id" name="Id">
-
-
         <div class="form-group">
             <label for="UserName">UserName</label>
             <input type="text" class="form-control" id="UserName" value="@Model.UserName" name="UserName">
@@ -17,7 +14,7 @@
 
         <div class="form-group">
             <label for="Email">Email</label>
-            <input type="disabled" class="form-control" id="Email" value="@Model.Email" name="Email" disabled>
+            <input type="text" class="form-control" id="Email" value="@Model.Email" name="Email" >
 
         </div>
 

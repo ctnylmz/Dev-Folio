@@ -6,10 +6,12 @@ namespace Dev_Folio.Utilities
     {
         public static async Task CreateUser(UserManager<IdentityUser> userManager)
         {
-            var Email = "admin@gmail.com";
+            var allUsers = userManager.Users;
 
-            if (userManager.FindByEmailAsync(Email).Result == null)
+            if (!allUsers.Any())
             {
+                var Email = "admin@gmail.com";
+
                 IdentityUser user = new IdentityUser
                 {
                     UserName = Email,

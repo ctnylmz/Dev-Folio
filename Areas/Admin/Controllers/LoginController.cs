@@ -38,9 +38,11 @@ namespace Dev_Folio.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(User model)
         {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, lockoutOnFailure: false);
+                var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, lockoutOnFailure: false);
 
                 if (result.Succeeded)
                 {
