@@ -38,32 +38,36 @@ namespace Dev_Folio.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(User model)
         {
-            var user = await _userManager.FindByEmailAsync(model.Email);
-
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, lockoutOnFailure: false);
+                var user = await _userManager.FindByEmailAsync(model.Email);
 
-                if (result.Succeeded)
+                if (user != null)
                 {
+                    var result = await _signInManager.PasswordSignInAsync(user, model.Password, false, lockoutOnFailure: false);
 
-                    return RedirectToAction("Index", "Admin");
-
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Password", "Şifre Hatalı");
+                    }
                 }
                 else
                 {
-
-                    ModelState.AddModelError("Email", "Email Or Password Hatalı");
-
-                    return View(model);
-
-
+                    ModelState.AddModelError("Email", "Kullanıcı bulunamadı");
                 }
             }
-            ModelState.AddModelError("Email", "Sistemde Problem Var");
+            else
+            {
+                ModelState.AddModelError("Email", "Sistemde Problem Var");
+            }
 
             return View(model);
         }
+
 
 
     }
