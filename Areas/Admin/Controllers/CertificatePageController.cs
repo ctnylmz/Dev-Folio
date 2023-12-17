@@ -93,9 +93,23 @@ namespace Dev_Folio.Areas.Admin.Controllers
 
         [Route("Admin/Certificate/Update/{id}")]
         [HttpPost]
-        public IActionResult Update(Certificate certificate)
+        public IActionResult Update(Certificate updatedCertificate, int id)
         {
-            _context.Certificates.Update(certificate);
+            var existingCertificate = _context.Certificates.Find(id);
+
+            if (existingCertificate == null)
+            {
+                return NotFound();
+            }
+
+            updatedCertificate.ThumbnailUrl = existingCertificate.ThumbnailUrl;
+
+            existingCertificate.Name = updatedCertificate.Name;
+            existingCertificate.Title = updatedCertificate.Title;
+            existingCertificate.Description = updatedCertificate.Description;
+            existingCertificate.Time = updatedCertificate.Time;
+
+            _context.Certificates.Update(existingCertificate);
             _context.SaveChanges();
 
             return RedirectToAction("Index");

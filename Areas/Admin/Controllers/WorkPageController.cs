@@ -90,9 +90,23 @@ namespace Dev_Folio.Areas.Admin.Controllers
 
         [Route("/Admin/Work/Update/{id}")]
         [HttpPost]
-        public IActionResult Update(Work work)
+        public IActionResult Update(Work updatedWork, int id)
         {
-            _context.Works.Update(work);
+            var existingWork = _context.Works.Find(id);
+
+            if (existingWork == null)
+            {
+                return NotFound();
+            }
+
+            updatedWork.ThumbnailUrl = existingWork.ThumbnailUrl;
+
+            existingWork.Name = updatedWork.Name;
+            existingWork.Title = updatedWork.Title;
+            existingWork.Description = updatedWork.Description;
+            existingWork.Time = updatedWork.Time;
+
+            _context.Works.Update(existingWork);
             _context.SaveChanges();
 
             return RedirectToAction("Index");
