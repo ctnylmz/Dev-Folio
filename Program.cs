@@ -21,11 +21,11 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 .AddEntityFrameworkStores<DevFolioContext>()
 .AddDefaultTokenProviders();
 
-using (var scope = builder.Services.BuildServiceProvider().CreateScope())
-{
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-    await RoleUtilities.EnsureRolesCreated(roleManager);
-}
+//using (var scope = builder.Services.BuildServiceProvider().CreateScope())
+//{
+//    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+//    await RoleUtilities.EnsureRolesCreated(roleManager);
+//}
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -53,11 +53,11 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-using (var scope = app.Services.CreateScope())
-{
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-    DefaultUserUtilities.CreateUser(userManager).Wait();
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+//    DefaultUserUtilities.CreateUser(userManager).Wait();
+//}
 
 
 app.MapControllerRoute(
