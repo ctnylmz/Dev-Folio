@@ -36,9 +36,4 @@ Dev-Folio is an ASP.NET Core 6 project that provides a portfolio and simple blog
 # 9 Update Pages Settings:
 - Go to the Pages Settings and make any necessary edits.
 
-# 10 Extra Information
 
-- /assets/img/home-bg.jpg
-- /assets/img/about-bg.jpg
-- /assets/img/post-bg.jpg
-- /assets/img/contact-bg.jpg
