@@ -1,5 +1,5 @@
 Dev-Folio ASP.NET Core 6 Project
-Dev-Folio is an ASP.NET Core 6 project that provides a clean and simple blog template. Follow the steps below to set up and run the project.
+Dev-Folio is an ASP.NET Core 6 project that provides a portfolio and simple blog template. Follow the steps below to set up and run the project.
 
 # Installation Steps
 
@@ -14,7 +14,7 @@ Dev-Folio is an ASP.NET Core 6 project that provides a clean and simple blog tem
 
 # 4 Run Migrations:
 - Open Package Manager Console and run the following commands:
-- add-migration StartCleanBlogDB 
+- add-migration StartDevFolioDB 
 - update-database
 
 # 5 Configure Program.cs:
