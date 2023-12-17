@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Dev_Folio.Data;
 using Dev_Folio.Models;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Dev_Folio.Areas.Admin.Controllers
 {
@@ -10,10 +11,12 @@ namespace Dev_Folio.Areas.Admin.Controllers
     public class CertificatePageController : Controller
     {
         private DevFolioContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public CertificatePageController(DevFolioContext context)
+        public CertificatePageController(DevFolioContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [Route("Admin/Certificate")]
@@ -32,18 +35,45 @@ namespace Dev_Folio.Areas.Admin.Controllers
 
         [Route("Admin/Certificate/Create")]
         [HttpPost]
-        public IActionResult Add(Certificate certificate)
+        public async Task<IActionResult> Add(Certificate certificate)
         {
-            _context.Certificates.Add(certificate);
-            _context.SaveChanges();
-            
+            var newCertificate = new Certificate();
+
+            newCertificate.Name = certificate.Name;
+            newCertificate.Title = certificate.Title;
+            newCertificate.Description = certificate.Description;
+            newCertificate.Time = certificate.Time;
+
+            if (certificate.Thumbnail != null)
+            {
+                newCertificate.ThumbnailUrl = UploadImage(certificate.Thumbnail);
+            }
+            else
+            {
+                newCertificate.ThumbnailUrl = "default.jpg";
+            }
+
+            await _context.Certificates.AddAsync(newCertificate);
+            await _context.SaveChangesAsync();
+
             return RedirectToAction("Index");
         }
+
 
         [Route("Admin/Certificate/Delete/{id}")]
         public IActionResult Add(int Id)
         {
             var result = _context.Certificates.Find(Id);
+
+            if (result.ThumbnailUrl != "default.jpg")
+            {
+                var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "img", result.ThumbnailUrl);
+
+                if (System.IO.File.Exists(imagePath))
+                {
+                    System.IO.File.Delete(imagePath);
+                }
+            }
 
             _context.Certificates.Remove(result);
 
@@ -70,6 +100,25 @@ namespace Dev_Folio.Areas.Admin.Controllers
 
             return RedirectToAction("Index");
         }
+
+        private string UploadImage(IFormFile file)
+        {
+            var uniqueFileName = "";
+            var folderPath = Path.Combine(_webHostEnvironment.WebRootPath, "img");
+
+            uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+
+            var filePath = Path.Combine(folderPath, uniqueFileName);
+
+            using (FileStream fileStream = System.IO.File.Create(filePath))
+            {
+                file.CopyTo(fileStream);
+            }
+
+            return uniqueFileName;
+        }
+
+
 
     }
 }
