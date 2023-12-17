@@ -21,6 +21,21 @@ namespace Dev_Folio.Areas.Admin.Controllers
         {
             var result = _context.Contacts.FirstOrDefault();
 
+            if (result == null)
+            {
+                var newContact = new Contact
+                {
+                    Address = "",
+                    Phone = "",
+                    Email = "",
+                };
+
+                _context.Contacts.Add(newContact);
+                _context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
             return View(result);
         }
 

@@ -14,7 +14,7 @@ namespace Dev_Folio.Controllers
 
         public IActionResult Index()
         {
-            var home = _context.Homes.Find(1);
+            var home = _context.Homes.FirstOrDefault();
             return View(home);
         }
     }

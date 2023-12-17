@@ -23,6 +23,25 @@ namespace Dev_Folio.Areas.Admin.Controllers
         {
             var about = _context.Abouts.FirstOrDefault();
 
+
+            if (about == null)
+            {
+                var newAbout = new About
+                {
+                    Name = "",
+                    Title = "",
+                    Email = "",
+                    Phone = "",
+                    Description = "",
+                };
+
+                _context.Abouts.Add(newAbout);
+                _context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+
             about.Skill = _context.Skills.ToList();
 
             return View(about);

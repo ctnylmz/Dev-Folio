@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Dev_Folio.Data;
 using Dev_Folio.Models;
+using Microsoft.AspNetCore.Components.Routing;
 
 namespace Dev_Folio.Areas.Admin.Controllers
 {
@@ -20,7 +21,22 @@ namespace Dev_Folio.Areas.Admin.Controllers
         [Route("Admin/Home")]
         public IActionResult Index()
         {
-            var home = _context.Homes.Find(1);
+            var home = _context.Homes.FirstOrDefault();
+
+            if (home == null)
+            {
+                var newHome = new Home
+                {
+                    Name = "",
+                    Title = "",
+                };
+
+                _context.Homes.Add(newHome);
+                _context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
             return View(home);
         }
 
